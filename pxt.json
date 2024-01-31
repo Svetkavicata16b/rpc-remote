@@ -1,10 +1,11 @@
 {
-    "name": "робо ръка и кола 2 оригинал",
+    "name": "RPC-REMOTE",
     "description": "",
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "pxt-bitwise": "github:RoboticsBrno/pxt-bitwise#v1.0.2"
     },
     "files": [
         "main.blocks",

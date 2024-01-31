@@ -54,46 +54,46 @@ basic.forever(function () {
         b2 = pins.digitalReadPin(DigitalPin.P15)
         command = 0
         if (j1_y < lower_limit) {
-            command = command | S2_FORWARD
-print_direction("j1^")
+            command = bitwise.or(command, S2_FORWARD)
+            print_direction("j1^")
         } else if (j1_y > higher_limit) {
-            command = command | S2_BACK
-print_direction("j1v")
+            command = bitwise.or(command, S2_BACK)
+            print_direction("j1v")
         }
         if (j1_x < lower_limit) {
-            command = command | S1_RIGHT
-print_direction("j1>")
+            command = bitwise.or(command, S1_RIGHT)
+            print_direction("j1>")
         } else if (j1_x > higher_limit) {
-            command = command | S1_LEFT
-print_direction("j1<")
+            command = bitwise.or(command, S1_LEFT)
+            print_direction("j1<")
         }
         if (j2_y < lower_limit) {
-            command = command | S3_FORWARD
-print_direction("j2v")
+            command = bitwise.or(command, S3_FORWARD)
+            print_direction("j2v")
         } else if (j2_y > higher_limit) {
-            command = command | S3_BACK
-print_direction("j2^")
+            command = bitwise.or(command, S3_BACK)
+            print_direction("j2^")
         }
         if (input.buttonIsPressed(Button.A)) {
-            command = command | PINCH_CLOSE
-print_direction("b1")
+            command = bitwise.or(command, PINCH_CLOSE)
+            print_direction("b1")
         } else if (input.buttonIsPressed(Button.B)) {
-            command = command | PINCH_CLOSE
-print_direction("b1")
+            command = bitwise.or(command, PINCH_CLOSE)
+            print_direction("b1")
         }
         if (input.isGesture(Gesture.ScreenUp)) {
-            command = command | CAR_FORWARD
-print_direction("^")
+            command = bitwise.or(command, CAR_FORWARD)
+            print_direction("^")
         } else if (input.isGesture(Gesture.ScreenDown)) {
-            command = command | CAR_BACK
-print_direction("v")
+            command = bitwise.or(command, CAR_BACK)
+            print_direction("v")
         }
         if (input.isGesture(Gesture.TiltLeft)) {
-            command = command | CAR_RIGHT
-print_direction("<")
+            command = bitwise.or(command, CAR_RIGHT)
+            print_direction("<")
         } else if (input.isGesture(Gesture.TiltRight)) {
-            command = command | CAR_LEFT
-print_direction(">")
+            command = bitwise.or(command, CAR_LEFT)
+            print_direction(">")
         }
         radio.sendString("" + (command))
         basic.pause(200)
